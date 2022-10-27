@@ -27,11 +27,11 @@
 
         <div id="modal" class="modal hidden">
             <h2>Enter Card Details</h2>
-            <form id="payment-form" action="">
+            <form id="payment-form" action="#" method="POST">
                 <input id="name" type="text" placeholder="Enter your name " required/>
                 <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="Enter Card number" required/>
                 <input id="card-cvv" type="text" maxlength="3" placeholder="Enter CVV " required/>
-                <button type="submit" id="pay" class="btn" >Pay</button>
+                <button type="submit" id="pay" class="btn">Pay</button>
             </form>
         </div>
     </div>

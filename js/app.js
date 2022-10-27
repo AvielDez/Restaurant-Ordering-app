@@ -19,9 +19,10 @@ document.addEventListener('click', function(event){
     else if(event.target.id === 'complete-order'){
         renderModal()
     }
-    else if(event.target.id === 'pay'){
-        submitPayment()
-    }
+})
+document.getElementById('payment-form').addEventListener('submit', function(event){
+    event.preventDefault()
+    submitPayment()
 })
 
 //Adds menu items to the orderList array
@@ -53,17 +54,6 @@ function handleRemoveMenuItem(item){
     }
     renderOrder()
 }
-
-// function howManyOfEachItem(item){
-//     let itemNumber = 0
-//     orderList.filter(function(list){
-//         if(list.name === item){
-//             itemNumber++
-//         }
-//     })
-//     return itemNumber
-//     ADD THIS TO THE H2 TAG IN getOrderItems() FUNCTION --->${howManyOfEachItem(list.name)}
-// }
 
 //Loops through orderList array and generates all the orders added
 function getOrderItems(){
@@ -104,7 +94,7 @@ function menuBoard(){
 
 }
 
-// Creates the order board structure showing order total and complete order button
+// Creates the order board structure showing order total, items, and complete order button
 function orderBoard(){
     let currentOrder = ''
     if(getTotalPriceOfItems() > 0){
@@ -154,14 +144,11 @@ function renderModal(){
 }
 
 function submitPayment(){
-    const paymentForm = document.getElementById('payment-form')
-    paymentForm.addEventListener('submit', function(event){
-        event.preventDefault()
-    })
-    const formName = document.getElementById('name').value
     document.getElementById('modal').style.display = "none"
 
     orderList = []
+
+    const formName = document.getElementById('name').value
 
     document.getElementById('order-board').innerHTML = `
         <div class="thank-you-message">
