@@ -144,6 +144,7 @@ function renderModal(){
 }
 
 function submitPayment(){
+
     document.getElementById('modal').style.display = "none"
 
     orderList = []
